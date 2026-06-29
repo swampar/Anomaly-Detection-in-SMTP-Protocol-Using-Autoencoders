@@ -1,0 +1,71 @@
+## 📂 Dataset Details
+
+This project makes use of the **NSL-KDD dataset**, a standard benchmark dataset commonly employed for research in intrusion detection and network security.
+
+The NSL-KDD dataset was introduced as an enhanced version of the KDD Cup 1999 dataset. It removes duplicate records and reduces bias, allowing machine learning models to be evaluated more effectively on both normal and attack traffic patterns.
+
+### Dataset Components
+
+#### KDDTrain+.txt
+
+- Used for training the anomaly detection model.
+- Includes normal connections as well as multiple attack instances.
+- Contains labeled records with difficulty levels.
+- Approximately 125,000+ network samples.
+
+#### KDDTest+.txt
+
+- Used to assess model performance.
+- Contains previously observed and unseen attack categories.
+- Helps measure the model's ability to generalize to new threats.
+- Approximately 22,000+ network samples.
+
+### Network Features
+
+The dataset consists of **41 attributes** describing network connections. These features are broadly categorized as:
+
+- Basic connection information
+- Content-related features
+- Traffic statistics
+- Host-level characteristics
+
+Some important attributes include:
+
+- Duration
+- Protocol type
+- Service name
+- Source bytes
+- Destination bytes
+- Connection status (flag)
+- Login information
+- Connection count
+- Service count
+- Error rate metrics
+
+### Attack Classes
+
+The dataset contains different categories of intrusions, including:
+
+- **DoS (Denial of Service)**
+- **Probe attacks**
+- **R2L (Remote-to-Local attacks)**
+- **U2R (User-to-Root attacks)**
+- **Normal network traffic**
+
+### Reason for Choosing NSL-KDD
+
+- Eliminates redundant samples present in KDD'99.
+- Provides a more balanced benchmark for IDS research.
+- Improves fairness in model evaluation.
+- Remains widely accepted in cybersecurity studies and academic projects.
+
+### Role of the Dataset in This Work
+
+The following steps are performed using the dataset:
+
+1. Clean and preprocess network traffic records.
+2. Convert categorical attributes into numerical representations.
+3. Extract SMTP-related traffic patterns for analysis.
+4. Train an Autoencoder model on normal behavior.
+5. Detect anomalies using reconstruction error thresholds.
+6. Evaluate results through accuracy metrics and confusion matrices.
